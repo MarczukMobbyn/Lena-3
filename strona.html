@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walentynki dla LENY MOJESCIK ❤️</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(120deg, #ff758c, #ff7eb3);
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .heart {
+            font-size: 80px;
+            animation: pulse 1s infinite alternate;
+        }
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.2); }
+        }
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            position: relative;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            background: #ff4b5c;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            position: relative;
+        }
+        button:hover {
+            background: #ff2d3b;
+        }
+        .no-btn {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>KOCHAM CIEIEIEIEIEIE! 💖</h1>
+        <div class="heart">❤️🫵</div>
+        <h2>Czy zostaniesz moją walentynką? 🥹🤞💕</h2>
+        <div class="buttons">
+            <button onclick="showMessage()">Tak</button>
+            <button class="no-btn" id="noButton">Nie</button>
+        </div>
+        <p id="message" style="display: none; font-size: 20px; margin-top: 10px;">YAYAYAYAYAY! Kocham Cię! 💘😭🖕</p>
+    </div>
+    <script>
+        let noButton = document.getElementById("noButton");
+        let container = document.querySelector(".container");
+        let message = document.getElementById("message");
+
+        function moveNoButton() {
+            let maxX = container.clientWidth / 2 - noButton.clientWidth / 2;
+            let maxY = container.clientHeight / 2 - noButton.clientHeight / 2;
+            let x = Math.random() * maxX * 2 - maxX;
+            let y = Math.random() * maxY * 2 - maxY;
+            noButton.style.transform = `translate(${x}px, ${y}px)`;
+            
+            // Wyłącz kursor na 0.1 sekundy
+            noButton.style.pointerEvents = "none";
+            setTimeout(() => {
+                noButton.style.pointerEvents = "auto";
+            }, 100);
+        }
+        
+        noButton.addEventListener("mouseenter", moveNoButton);
+        noButton.addEventListener("mousemove", moveNoButton);
+
+        function showMessage() {
+            message.style.display = "block";
+        }
+    </script>
+</body>
+</html>
